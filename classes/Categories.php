@@ -28,7 +28,12 @@ class Categories extends Products {
      */ 
     public function getIcon()
     {
-        return $this->icon;
+        if($this->category === "cane"){
+            return "fa-solid fa-dog";
+        }else{
+            return "fa-solid fa-cat";
+        }
+        
     }
 
     /**
