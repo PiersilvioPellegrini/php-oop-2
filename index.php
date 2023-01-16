@@ -1,8 +1,21 @@
-
 <?php
 require_once "./classes/Products.php";
-require_once "./classes/Foods.php.php";
-require_once "./classes/Toys.php";
+require_once "./classes/Categories.php";
+
+$list_product = [
+  $prodotto1 = new Categories("Scatoletta", "https://loremflickr.com/320/240/cat", 14, "Cibo", "icona", "gatto"),
+  $prodotto2 = new Categories("Pallina", "https://loremflickr.com/320/240/dog", 12, "Giocattolo", "icona", "cane"),
+  $prodotto3 = new Categories("Croccantini", "https://loremflickr.com/320/240/cat", 20, "giocattolo", "icona", "gatto"),
+  $prodotto4 = new Categories("Scatoletta", "https://loremflickr.com/320/240/dog", 14, "Cibo", "icona", "cane"),
+  $prodotto5 = new Categories("Pallina", "https://loremflickr.com/320/240/cat", 12, "Giocattolo", "icona", "gatto"),
+  $prodotto6 = new Categories("Croccantini", "https://loremflickr.com/320/240/dog", 20, "giocattolo", "icona", "cane")
+
+];
+
+// var_dump($list_product);
+
+
+
 
 ?>
 
@@ -63,8 +76,22 @@ require_once "./classes/Toys.php";
 <body>
 
   <main class="container pb-5">
-    <h1 class="my-5">Php-oop-2</h1>
-    <!-- your code -->
+    <h1 class="my-5">E-commerce Animali</h1>
+
+
+  <div class="container_card row gap-5">
+
+    <?php foreach ($list_product as $product) { ?> 
+      <div class="card" style="width: 18rem;"> <img src=<?php echo $product->getImage() ?> class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $product->getName_product() ?></h5>
+          <p>TIPOLOGIA PRODOTTO:<br><?php echo $product->getType() ?></p>
+          <p></p>
+          <p>CATEGORIA:<br><?php echo $product->getCategory() ?></p>
+          <p>PREZZO:<br><?php echo $product->getPrice() ?>€</p>
+        </div>
+      </div> <?php } ?>
+  </div>
   </main>
 
   <script src="js/main.js"></script>
